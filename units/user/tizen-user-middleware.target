@@ -1,0 +1,4 @@
+[Unit]
+Description=Tizen user middleware target
+After=default.target
+Requires=default.target

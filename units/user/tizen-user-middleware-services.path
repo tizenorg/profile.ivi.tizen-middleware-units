@@ -1,0 +1,8 @@
+[Unit]
+Description=Path activation for tizen user middleware services
+
+[Path]
+PathExists=/tmp/fastboot
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Tizen user services path trigger
+Conflicts=shutdown.target
+Before=shutdown.target
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/touch /tmp/fastboot
+
+[Install]
+WantedBy=tizen-middleware.target

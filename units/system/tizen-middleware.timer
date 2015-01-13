@@ -1,0 +1,14 @@
+# A .timer service to delay tizen-middleware.target startup
+# 
+# FIXME: trigger startup from an event
+
+[Unit]
+Description=Start Tizen system middleware services target
+
+[Timer]
+OnActiveSec=1s 500ms
+AccuracySec=500ms
+Unit=tizen-middleware.target
+
+[Install]
+WantedBy=multi-user.target
