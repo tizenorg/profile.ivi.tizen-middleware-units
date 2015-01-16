@@ -8,6 +8,9 @@ BuildArch: 	noarch
 Source0:        %{name}-%{version}.tar.gz
 Source1001:	tizen-middleware-units.manifest
 
+Requires(post):   /usr/bin/systemctl
+Requires(postun): /usr/bin/systemctl
+
 %description
 Tizen middleware target units creates a systemd target for all
 tizen specific middleware (both system and user services).
@@ -33,6 +36,9 @@ systemctl --global enable tizen-user-middleware-services.path
 systemctl daemon-reload
 
 %postun
+systemctl disable tizen-user-services-path-trigger.service
+systemctl disable tizen-middleware.timer
+systemctl --global disable tizen-user-middleware-services.path
 systemctl daemon-reload
 
 %files
